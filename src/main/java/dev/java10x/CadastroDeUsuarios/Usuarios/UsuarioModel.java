@@ -1,5 +1,6 @@
-package dev.java10x.CadastroDeUsuarios;
+package dev.java10x.CadastroDeUsuarios.Usuarios;
 
+import dev.java10x.CadastroDeUsuarios.Tarefas.TarefasModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,9 +10,16 @@ public class UsuarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
+
+    @ManyToOne
+    @JoinColumn(name = "tarefas_id")
+    private TarefasModel tarefas;
 
     public UsuarioModel() {
     }
