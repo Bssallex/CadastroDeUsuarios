@@ -15,13 +15,19 @@ public class UsuarioModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private Long id;
 
+    @Column(name = "Nome")
     private String nome;
 
     @Column(unique = true)
     private String email;
 
+    @Column(name = "Img_Url")
+    private String imgUrl;
+
+    @Column(name = "Idade")
     private int idade;
 
     @ManyToOne
