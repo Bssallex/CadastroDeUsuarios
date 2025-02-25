@@ -33,9 +33,9 @@ public class UsuarioController {
     }
 
     // Mostrar todos os usuarios por ID
-    @GetMapping("/listarId")
-    public String mostrarUsuariosId(){
-        return "Mostrar usuario por id";
+    @GetMapping("/listar/{id}")
+    public UsuarioModel listarUsuariosId(@PathVariable Long id){
+        return usuarioService.listarUsuariosId(id);
     }
 
     // Alterar dados dos usuarios
