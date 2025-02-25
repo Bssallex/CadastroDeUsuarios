@@ -45,9 +45,9 @@ public class UsuarioController {
     }
 
     // Deletar usuarios por ID
-    @DeleteMapping("/deletarId")
-    public String deletarUsuariosId(){
-         return "Usuario deletado por id";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarUsuariosId(@PathVariable Long id){
+        usuarioService.deletarUsuarioId(id);
     }
 
 
