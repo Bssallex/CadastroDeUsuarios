@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeUsuarios.Tarefas;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeUsuarios.Usuarios.UsuarioModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,7 @@ public class TarefasModel {
     private String dificuldade;
 
     @OneToMany(mappedBy = "tarefas")
+    @JsonIgnore
     private List<UsuarioModel> usuario;
 
 }
