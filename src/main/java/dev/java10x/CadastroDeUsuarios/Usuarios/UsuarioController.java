@@ -39,16 +39,19 @@ public class UsuarioController {
     }
 
     // Alterar dados dos usuarios
-    @PutMapping("/alterarId")
-    public String alterarUsuariosId(){
-         return "Alterar usuario por id";
+    @PutMapping("/alterar/{id}")
+    public UsuarioModel alterarUsuariosId(@PathVariable Long id, @RequestBody UsuarioModel usuarioAtualizado){
+         return usuarioService.atualizarUsuario(id, usuarioAtualizado);
     }
 
-    // Deletar usuarios por ID
+    // Deletar usuario por ID
     @DeleteMapping("/deletar/{id}")
     public void deletarUsuariosId(@PathVariable Long id){
         usuarioService.deletarUsuarioId(id);
     }
+
+    // Atualizar usuario
+
 
 
 
