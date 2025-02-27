@@ -22,7 +22,7 @@ public class UsuarioController {
 
     // Adicionar usuarios
     @PostMapping("/criar")
-    public UsuarioModel criarUsuario(@RequestBody UsuarioModel usuario){
+    public UsuarioDTO criarUsuario(@RequestBody UsuarioDTO usuario){
        return usuarioService.criarUsuario(usuario);
     }
 
@@ -50,7 +50,6 @@ public class UsuarioController {
         usuarioService.deletarUsuarioId(id);
     }
 
-    // Atualizar usuario
 
 
 

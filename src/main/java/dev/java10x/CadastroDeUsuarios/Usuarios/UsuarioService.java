@@ -11,9 +11,11 @@ public class UsuarioService {
     // Fazer a conexeção com o repository
 
     private UsuarioRepository usuarioRepository;
+    private UsuarioMapper usuarioMapper;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
         this.usuarioRepository = usuarioRepository;
+        this.usuarioMapper = usuarioMapper;
     }
 
     // Listar todos os usuarios com um método especial
@@ -31,8 +33,11 @@ public class UsuarioService {
 
     // Criar usuario
 
-    public UsuarioModel criarUsuario(UsuarioModel usuario){
-        return usuarioRepository.save(usuario);
+
+    public UsuarioDTO criarUsuario(UsuarioDTO usuarioDTO){
+        UsuarioModel usuario = usuarioMapper.map(usuarioDTO);
+        usuario = usuarioRepository.save(usuario);
+        return usuarioMapper.map(usuario);
     }
 
     // Deletar usuario
