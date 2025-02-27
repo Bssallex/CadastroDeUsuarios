@@ -30,6 +30,9 @@ public class UsuarioModel {
     @Column(name = "Idade")
     private int idade;
 
+    @Column(name = "Cpf")
+    private String cpf;
+
     @ManyToOne
     @JoinColumn(name = "tarefas_id")
     private TarefasModel tarefas;
