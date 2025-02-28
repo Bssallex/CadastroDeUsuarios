@@ -17,7 +17,5 @@ public class UsuarioDTO {
     private int idade;
     private String cpf;
     private TarefasModel tarefas;
-
-
-
+git
 }
