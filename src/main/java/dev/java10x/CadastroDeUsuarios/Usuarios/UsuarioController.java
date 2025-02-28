@@ -22,25 +22,25 @@ public class UsuarioController {
 
     // Adicionar usuarios
     @PostMapping("/criar")
-    public UsuarioModel criarUsuario(@RequestBody UsuarioModel usuario){
+    public UsuarioDTO criarUsuario(@RequestBody UsuarioDTO usuario){
        return usuarioService.criarUsuario(usuario);
     }
 
     // Listar usuarios
     @GetMapping("/listar")
-    public List<UsuarioModel> listarUsuarios(){
+    public List<UsuarioDTO> listarUsuarios(){
         return usuarioService.listarUsuarios();
     }
 
     // Mostrar todos os usuarios por ID
     @GetMapping("/listar/{id}")
-    public UsuarioModel listarUsuariosId(@PathVariable Long id){
+    public UsuarioDTO listarUsuariosId(@PathVariable Long id){
         return usuarioService.listarUsuariosId(id);
     }
 
     // Alterar dados dos usuarios
     @PutMapping("/alterar/{id}")
-    public UsuarioModel alterarUsuariosId(@PathVariable Long id, @RequestBody UsuarioModel usuarioAtualizado){
+    public UsuarioDTO alterarUsuariosId(@PathVariable Long id, @RequestBody UsuarioDTO usuarioAtualizado){
          return usuarioService.atualizarUsuario(id, usuarioAtualizado);
     }
 
@@ -50,7 +50,6 @@ public class UsuarioController {
         usuarioService.deletarUsuarioId(id);
     }
 
-    // Atualizar usuario
 
 
 
