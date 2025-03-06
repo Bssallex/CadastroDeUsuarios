@@ -11,8 +11,8 @@ public class UsuarioService {
 
     // Fazer a conexeção com o repository
 
-    private UsuarioRepository usuarioRepository;
-    private UsuarioMapper usuarioMapper;
+    private final UsuarioRepository usuarioRepository;
+    private final UsuarioMapper usuarioMapper;
 
     public UsuarioService(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
         this.usuarioRepository = usuarioRepository;
