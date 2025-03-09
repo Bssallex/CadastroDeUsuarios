@@ -18,7 +18,7 @@ public class UsuarioService {
 
     // LISTAR
 
-    public List<UsuarioDTO> adicionarUsuarios(){
+    public List<UsuarioDTO> listarUsuarios(){
         List<UsuarioModel> usuarioModels = usuarioRepository.findAll();
 
         return usuarioModels.stream()
