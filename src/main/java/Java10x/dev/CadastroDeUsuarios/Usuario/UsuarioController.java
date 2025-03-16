@@ -1,9 +1,7 @@
 package Java10x.dev.CadastroDeUsuarios.Usuario;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +22,21 @@ public class UsuarioController {
         return usuarioModels;
     }
 
+    @PostMapping("/criar")
+    public UsuarioDTO usuarioCriar(@RequestBody UsuarioDTO usuarioDTO){
+         UsuarioDTO criar = usuarioService.criarUsuario(usuarioDTO);
+          return criar;
+    }
 
+    @DeleteMapping("/deletar/{id}")
+    public void usuarioDeletar(@PathVariable Long id){
+        usuarioService.deletarUuario(id);
+    }
+
+    @PutMapping("/atualizar/{id}")
+    public UsuarioDTO atualizarUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO){
+        UsuarioDTO atualizar = usuarioService.atualizarUsuario(id, usuarioDTO);
+        return atualizar;
+    }
 
 }
