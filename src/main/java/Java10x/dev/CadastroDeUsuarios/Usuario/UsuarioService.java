@@ -1,7 +1,6 @@
 package Java10x.dev.CadastroDeUsuarios.Usuario;
 
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -17,8 +16,6 @@ public class UsuarioService {
         this.usuarioMapper = usuarioMapper;
     }
 
-    // LISTAR
-
     public List<UsuarioDTO> listarUsuarios(){
         List<UsuarioModel> usuarioModels = usuarioRepository.findAll();
 
@@ -27,19 +24,21 @@ public class UsuarioService {
                 .collect(Collectors.toList());
     }
 
-    // CRIAR
+    public UsuarioDTO listarUsuarioId(Long id){
+        Optional<UsuarioModel> usuarioId = usuarioRepository.findById(id);
+        return usuarioId.map(usuarioMapper::map).orElse(null);
+    }
+
     public UsuarioDTO criarUsuario(UsuarioDTO usuarioDTO){
         UsuarioModel usuario = usuarioMapper.map(usuarioDTO);
         usuario = usuarioRepository.save(usuario);
         return usuarioMapper.map(usuario);
     }
 
-    // DELETAR
     public void deletarUuario(Long id){
         usuarioRepository.deleteById(id);
     }
 
-    // ATUALIZAR
     public UsuarioDTO atualizarUsuario(Long id, UsuarioDTO usuarioDTO){
         Optional<UsuarioModel> usuario = usuarioRepository.findById(id);
 
