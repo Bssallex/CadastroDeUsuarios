@@ -38,5 +38,4 @@ public class UsuarioController {
         UsuarioDTO atualizar = usuarioService.atualizarUsuario(id, usuarioDTO);
         return atualizar;
     }
-
 }
